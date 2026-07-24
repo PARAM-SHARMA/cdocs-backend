@@ -4,6 +4,7 @@ import prismaPlugin from "./plugins/prisma.js";
 import jwtPlugin from "./plugins/jwt.js";
 import routes from "./router.js";
 import authenticatePlugin from "./plugins/authenticate.js";
+import websocketPlugin from "./plugins/websocket.js";
 
 const app = Fastify({
 	logger: {
@@ -27,6 +28,7 @@ await app.register(cors, {
 await app.register(jwtPlugin)
 await app.register(prismaPlugin);
 await app.register(authenticatePlugin);
+await app.register(websocketPlugin);
 await app.register(routes);
 
 const start = async () => {
